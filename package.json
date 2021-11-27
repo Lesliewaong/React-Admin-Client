@@ -2,19 +2,36 @@
   "name": "react-admin-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Lesliewaong.github.io/React-Admin-Client",
   "dependencies": {
+    "@antv/data-set": "^0.11.8",
+    "@craco/craco": "^6.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.16.13",
+    "axios": "^0.24.0",
+    "bizcharts": "^4.1.14",
+    "craco-less": "^1.20.0",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "echarts": "^5.2.2",
+    "echarts-for-react": "^3.0.2",
+    "jsonp": "^0.2.1",
+    "prop-types": "^15.7.2",
+    "qweather-icons": "^1.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-draft-wysiwyg": "^1.14.7",
+    "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "store": "^2.0.12",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +51,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
