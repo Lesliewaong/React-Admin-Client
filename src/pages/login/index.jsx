@@ -1,25 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Input, Button, Checkbox, message } from 'antd';
-import { useNavigate,Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { reqLogin } from '../../api'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './index.less'
 import logo from '../../assets/images/logo.jpg'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
+import LinkButton from '../../components/link-button'
 /**
  * 登录的路由组件(函数式组件)
  * 类式路由组件在onFinish中拿不到history
  *  */
 export default function Login() {
     const navigate = useNavigate();
+    const [isRemember, setIsRemember] = useState(true)
+    const [form] = Form.useForm()    //antd的Form组件的方法
+
     // 提交表单且数据验证成功后回调事件
     const onFinish = async values => {
         const { username, password } = values;
         const result = await reqLogin(username, password);//发送AJAX
         if (result.status === 0) { // 登陆成功
             message.success('登陆成功')
-            // 保存user
+            // 保存user            
             const user = result.data
             memoryUtils.user = user // 保存在内存中
             storageUtils.saveUser(user) // 保存到local中
@@ -34,12 +38,34 @@ export default function Login() {
     const onFinishFailed = (errorInfo) => {
         console.log('校验失败', errorInfo);
     };
-    // 如果用户已经登陆, 自动跳转到管理界面
-    const user = memoryUtils.user
-    if(user && user._id) {
-        return <Navigate to='/'/>
+    useEffect(() => {
+        if (isRemember) {
+            form.setFieldsValue({ username: 'admin', password: 'admin' })
+        } else {
+            form.resetFields()
+        }
+        // eslint-disable-next-line 
+    }, [isRemember])
+    // 静态页面
+    const staticPage = () => {
+        const user = {
+            "_id": {
+                "$oid": "6198ff0202576ee4ac9d6abd"
+            },
+            "username": "admin",
+            "password": "21232f297a57a5a743894a0e4a801fc3",
+            "create_time": 1637416706425,
+            "__v": 0,
+            'role':{
+                'menus':[]
+            }
+        }
+        user.role.menus=[]
+        memoryUtils.user = user // 保存在内存中
+        storageUtils.saveUser(user) // 保存到local中
+        // 跳转到管理界面 (不需要再回退回到登陆)
+        navigate('/', { replace: true })
     }
-
     return (
         <div className="login">
             <header className="login-header">
@@ -49,9 +75,10 @@ export default function Login() {
             <section className="login-content">
                 <h2>用户登录</h2>
                 <Form
+                    form={form}
                     name="normal_login"
                     className="login-form"
-                    initialValues={{ remember: true }}
+                    initialValues={{ remember: isRemember }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                 >
@@ -66,7 +93,7 @@ export default function Login() {
                             { pattern: /^[a-zA-Z0-9_]+$/, message: '用户名必须是英文,数字和下划线组成' },
                         ]}
                     >
-                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
                     </Form.Item>
                     <Form.Item
                         name="password"
@@ -90,23 +117,29 @@ export default function Login() {
                         <Input
                             prefix={<LockOutlined className="site-form-item-icon" />}
                             type="password"
-                            placeholder="Password"
+                            placeholder="密码"
                         />
                     </Form.Item>
                     <Form.Item>
                         <Form.Item name="remember" valuePropName="checked" noStyle>
-                            <Checkbox>记住密码</Checkbox>
+                            <Checkbox
+                                onChange={(v) => setIsRemember(v.target.checked)}
+                            >
+                                管理员登录
+                            </Checkbox>
                         </Form.Item>
-                        <a className="login-form-forgot" href="https://www.baidu.com">忘记密码</a>
+                        <a className="react-doc" href="https://zh-hans.reactjs.org/">React文档</a>
                     </Form.Item>
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             登录
                         </Button>
-                        或 <a href="https://www.baidu.com">立刻注册!</a>
                     </Form.Item>
                 </Form>
+                <LinkButton onClick={staticPage}>
+                    跳转静态页面
+                </LinkButton>
             </section>
         </div>
     )
