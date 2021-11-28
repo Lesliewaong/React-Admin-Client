@@ -1,5 +1,7 @@
 # react实战全栈后台
 
+项目预览：http://lesliewaong.top/react-admin-client/
+
 ## 准备
 
 ### 项目描述
