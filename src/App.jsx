@@ -41,10 +41,10 @@ export default function App() {
                 <Route path='/role' element={<Role />} />
                 <Route path="/charts-bar" element={<Bar />} />
                 <Route path="/charts-pie" element={<Pie />} />
-                <Route path="/charts-line" element={<Line />} />
-                {/* 以上路径都不匹配时 */}
-                <Route path='*' element={<NotFound />} />
+                <Route path="/charts-line" element={<Line />} />    
             </Route>
+            {/* 以上路径都不匹配时 */}
+            <Route path='*' element={<NotFound />} />
         </Routes>
 
     )

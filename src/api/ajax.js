@@ -22,6 +22,7 @@ export default function ajax(url,data={},type='GET') {
             promise=axios.post(url,data)
         }
         // 如果请求成功了，调用resolve(value)
+        // 该方法返回一个以response.data值解析后的Promise对象
         promise.then(response => {
             resolve(response.data)
             // console.log(response.data)

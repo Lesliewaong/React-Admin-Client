@@ -8,20 +8,56 @@
 
 1) 此项目为一个**前后台分离**的**后台管理的 SPA**（单页面应用）, 包括前端 PC 应用和后端应用
 2) 包括**用户管理** / **商品分类管理** / **商品管理** / **权限管理**等功能模块
-3) 前端: 使用 **React 全家桶** + **Antd** + **Axios** + **ES6** + **Webpack** 等技术
+3) 前端: 使用 **React 全家桶（函数式组件、react-router V6）** + **Antd（v4）** + **Axios** + **ES6** + **Webpack** 等技术
 4) 后端: 使用 **Node** + **Express** + **Mongodb** 等技术
 5) 采用**模块化**、**组件化**、**工程化**的模式开发
 
-B站教程地址:(前100集)https://www.bilibili.com/video/BV1i4411N7Qc?p=100&t=0
-(后40集)https://www.bilibili.com/video/BV1tK4y1H76t?p=15
-
 ### 技术选型
 
-[![I0hVTe.jpg](https://z3.ax1x.com/2021/11/11/I0hVTe.jpg)](https://imgtu.com/i/I0hVTe)
+[![oDk4ZF.png](https://s4.ax1x.com/2021/12/05/oDk4ZF.png)](https://imgtu.com/i/oDk4ZF)
+
+### 项目结构
+
+```js
+public ---- 静态资源文件夹
+	css ------ 和风天气图标字体
+	favicon.icon ------ 网站页签图标
+	index.html -------- 主页面
+	logo192.png ------- logo图
+	logo512.png ------- logo图
+	manifest.json ----- 应用加壳的配置文件
+	robots.txt -------- 爬虫协议文件
+src ---- 源码文件夹
+	>api -------- ajax相关
+    >assets -------- 公用资源
+    >components -------- 非路由组件
+    >config -------- 配置
+    >pages -------- 路由组件
+    >utils -------- 工具模块
+	App.css -------- App组件的样式
+	App.js --------- App组件
+	index.js ------- 入口文件
+```
 
 ### 前端路由
 
-[![I0hQ6P.jpg](https://z3.ax1x.com/2021/11/11/I0hQ6P.jpg)](https://imgtu.com/i/I0hQ6P)
+```js
+>pages -------- 路由组件
+	/login --- 登录
+	/ ----主页面
+		index --- 主路由 home
+		/category --- 分类管理
+        /product  --- 商品管理
+        	index --- 主路由
+        	/detail --- 详情
+        	/addupdate --- 添加/更新
+        /user --- 用户管理
+        /role --- 角色管理
+        /charts-bar --- 柱状图
+        /charts-pie --- 饼图
+        /charts-line --- 线图
+	* --- 404         
+```
 
 ### 接口
 
@@ -450,8 +486,6 @@ export default function App() {
 }
 
 ```
-
-
 
 ### React-Router v6 新特性
 
@@ -970,60 +1004,11 @@ validateFields().then(values => {
 });
 ```
 
-## 学习总结
-
-### 为什么学习使用React
-在传统的页面开发模式中，需要多次的操作DOM来进行页面的更新，我们都知道对DOM的操作会造成极大的性能问题。而React的提出就是减少对DOM的操作来提升性能，也就是Virtual DOM。
-
-### Antdv3升级成v4
-
-### 使用echarts绘图
-
-### 新的箭头函数用法
-为什么箭头函数返回值要用小括号包括起来？
-因为 大括号 是 函数主体 的标志。而箭头函数若要返回 自定义对象 的话，就必须用 小括号 把该对象括起来先。
-
-### 主组件的文件名都是index.jsx
-
-跟教程的按组件命名还是有些差别
-
-### 添加了postman的接口json
-
-翻了翻评论区,都没人提供.就自己手打搞了一个
-
-### 服务器地址用的评论区的
-
-地址为：http://120.55.193.14:5000
-天气接口换成了高德api，教程百度的挂了
-
-### 其他总结
-1.实现页面跳转前return，防止内存泄漏
-2.initialvalue写在item上
-3.因为后台数据保存不规范，要检查item是否存在再渲染
-
-
-## Redux总结
-redux确实学的有点头疼.关键得理解他到底每一步存在的意义是啥.不然连这部操作的必要性都不知道,自然就记不清有多少步了.
-### 什么情况下需要使用 redux
-1) 总体原则: 能不用就不用, 如果不用比较吃力才考虑使用
-2) 某个组件的状态，需要共享
-3) 某个状态需要在任何地方都可以拿到
-4) 一个组件需要改变全局状态
-5) 一个组件需要改变另一个组件的状态
-### 分清react-redux和redux
-1) 一开始完全懵逼,store.dispatch和connect this.props 混用,傻傻分不清,学了源码才知道connect Provider是react-redux的东西
-2) 使用react-redux,你不必将 state 中的数据原封不动地传入组件，可以根据 state 中的数据，动态地输出组件需要的（最小）属性
-3) react 16.0后与教程源码有所出入,于是学的最新的
-### reducer为纯函数
-简单来说，一个函数的返回结果只依赖于它的参数，并且在执行过程里面没有副作用，我们就把这个函数叫做纯函数
-
 
 
 ## 发布
 
 1. 利用脚手架创建react 项目
-
-
 
 ```bash
 create-react-app test
@@ -1085,6 +1070,11 @@ git subtree push --prefix=build origin gh-pages
    然后 图中的 2 就是你项目预览的地址。
 
 3. 点击链接就可以预览你的项目啦
+
+## 项目优化
+
+1. 搜索 防抖节流
+2. redux
 
 
 

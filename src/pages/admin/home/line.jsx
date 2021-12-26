@@ -70,7 +70,7 @@ export default function LineDemo() {
    */
   let chartIns;
   return (
-    <div style={{ float: 'right', width: 750, height: 300 }}>
+    <div className='line'>
       <Chart height={250}  scale={scale}
         data={data} autoFit
         onGetG2Instance={c => chartIns = c}>

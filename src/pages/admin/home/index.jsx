@@ -9,7 +9,7 @@ import { ReloadOutlined, ArrowUpOutlined, QuestionCircleOutlined, ArrowDownOutli
 import moment from 'moment'
 
 import LineDemo from './line'
-import BarDemo from './bar'
+import StockDemo from './stock'
 import './index.less'
 
 const dateFormat = 'YYYY/MM/DD'
@@ -26,7 +26,6 @@ export default function Home() {
                 className="home-card"
                 title="商品总量"
                 extra={<QuestionCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />}
-                style={{ width: 250 }}
                 headStyle={{ color: 'rgba(0,0,0,.45)' }}
             >
                 <Statistic
@@ -54,8 +53,8 @@ export default function Home() {
                 className="home-content"
                 title={<div className="home-menu">
                     <span className={isVisited ? "home-menu-active home-menu-visited" : 'home-menu-visited'}
-                        onClick={handleChange(true)}>访问量</span>
-                    <span className={isVisited ? "" : 'home-menu-active'} onClick={handleChange(false)}>销售量</span>
+                        onClick={handleChange(true)}>股票</span>
+                    <span className={isVisited ? "" : 'home-menu-active'} onClick={handleChange(false)}>访客</span>
                 </div>}
                 extra={<RangePicker
                     defaultValue={[moment('2019/01/01', dateFormat), moment('2019/06/01', dateFormat)]}
@@ -64,11 +63,11 @@ export default function Home() {
             >
                 <Card
                     className="home-table-left"
-                    title={isVisited ? '访问趋势' : '销售趋势'}
+                    title={isVisited ? '今日股票' : '访客分布'}
                     bodyStyle={{ padding: 0, height: 350 }}
                     extra={<ReloadOutlined />}
                 >
-                    <BarDemo />
+                    <StockDemo />
                 </Card>
 
                 <Card title='任务' extra={<ReloadOutlined />} className="home-table-right">

@@ -1,8 +1,8 @@
 // 入口js
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter} from 'react-router-dom'
-// import {HashRouter} from 'react-router-dom'
+// import { BrowserRouter} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import App from './App'
 import 'antd/dist/antd.less'
 import storageUtils from './utils/storageUtils'
@@ -15,7 +15,10 @@ memoryUtils.user = user
 // 发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中。
 // 为配合gh page显示,打包暂时使用HashRouter
 ReactDOM.render(
-    <BrowserRouter>
+    // <BrowserRouter>
+    //     <App />
+    // </BrowserRouter>,
+    <HashRouter>
         <App />
-    </BrowserRouter>,
+    </HashRouter>,
 document.getElementById('root'))

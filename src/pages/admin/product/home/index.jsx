@@ -5,7 +5,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import LinkButton from '../../../../components/link-button'
 import { reqProducts, reqSearchProducts, reqUpdatesProductsStatus } from '../../../../api/index'
 import { PAGE_SIZE } from '../../../../utils/constants'
-
+// import {debounce} from 'lodash'; //函数防抖
 
 const { Option } = Select;
 /**
@@ -34,7 +34,7 @@ export default function ProductHome() {
                 style={{ width: 150, margin: '0 15px' }}
                 value={searchName}
                 // 根据文档判断onChange的传值到底是什么
-                onChange={event => setSearchName(event.target.value)}
+                onChange={event => {setPageNum(1);setSearchName(event.target.value);console.log(event.target.value);}}
             />
             <Button type='primary' onClick={() => {setPageNum(1);getProducts(1)}}>搜索</Button>
         </span>
@@ -100,6 +100,7 @@ export default function ProductHome() {
     // 获取指定页码的列表数据显示
     const getProducts = async (pageNum) => {
         setLoading(true)
+        console.log(searchName)
         //是否搜索
         let result
         if (searchName) {
@@ -127,6 +128,8 @@ export default function ProductHome() {
     }
     // eslint-disable-next-line  
     useEffect(() => { getProducts(pageNum) }, [pageNum])
+    // eslint-disable-next-line
+    useEffect(() => { getProducts(pageNum) }, [searchName])
     return (
         <Card title={title} extra={extra}>
             <Table
