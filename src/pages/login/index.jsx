@@ -25,6 +25,7 @@ export default function Login() {
             message.success('登陆成功')
             // 保存user            
             const user = result.data
+            console.log(user)
             memoryUtils.user = user // 保存在内存中
             storageUtils.saveUser(user) // 保存到local中
             // 跳转到管理界面 (不需要再回退回到登陆)
@@ -60,7 +61,7 @@ export default function Login() {
                 'menus':[]
             }
         }
-        user.role.menus=[]
+        // user.role.menus=[]
         memoryUtils.user = user // 保存在内存中
         storageUtils.saveUser(user) // 保存到local中
         // 跳转到管理界面 (不需要再回退回到登陆)
@@ -138,7 +139,7 @@ export default function Login() {
                     </Form.Item>
                 </Form>
                 <LinkButton onClick={staticPage}>
-                    跳转静态页面
+                    跳转静态页面(访客登录)
                 </LinkButton>
             </section>
         </div>

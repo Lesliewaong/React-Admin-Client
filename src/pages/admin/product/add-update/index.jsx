@@ -8,7 +8,7 @@ import {
     message
 } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation} from "react-router-dom"
 import LinkButton from '../../../../components/link-button'
 import { reqCateGories,reqAddOrUpdateProduct } from '../../../../api/index'
 import PicturesWall from './pictures-wall'
@@ -30,6 +30,7 @@ export default function ProductAddUpdate() {
     const [form] = Form.useForm();
     const location = useLocation();
     const isUpdate = location.state
+    // console.log(isUpdate)
     const product = isUpdate || {}
     const { pCategoryId, categoryId, imgs, detail,_id } = product
     // 用来接收级联分类ID的数组

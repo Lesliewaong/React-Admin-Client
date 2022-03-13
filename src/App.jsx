@@ -28,20 +28,20 @@ export default function App() {
         // index 表示主路由
         // v6中不再支持 v5 中的 <Redirect> 元素作为路由配置的一部分（在 <Routes> 内）
         <Routes>
-            <Route path='/login' element={<Login />}></Route>
+            <Route path='login' element={<Login />}></Route>
             <Route path='/' element={<Admin />}>
                 <Route index element={<Home />} />
-                <Route path='/category' element={<Category />} />
-                <Route path='/product' element={<Product />}>
+                <Route path='category' element={<Category />} />
+                <Route path='product' element={<Product />}>
                     <Route index element={<ProductHome />} />
                     <Route path='detail' element={<ProductDetail />} />
                     <Route path='addupdate' element={<ProductAddUpdate />} />
                 </Route>
-                <Route path='/user' element={<User />} />
-                <Route path='/role' element={<Role />} />
-                <Route path="/charts-bar" element={<Bar />} />
-                <Route path="/charts-pie" element={<Pie />} />
-                <Route path="/charts-line" element={<Line />} />    
+                <Route path='user' element={<User />} />
+                <Route path='role' element={<Role />} />
+                <Route path="charts-bar" element={<Bar />} />
+                <Route path="charts-pie" element={<Pie />} />
+                <Route path="charts-line" element={<Line />} />    
             </Route>
             {/* 以上路径都不匹配时 */}
             <Route path='*' element={<NotFound />} />

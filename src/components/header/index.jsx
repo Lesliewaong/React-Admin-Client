@@ -18,7 +18,9 @@ export default function Header() {
     const [time,setTime] = useState(formateDate(Date.now()));
     const [picUrl,setPicUrl] = useState('');
     const [weather,setWeather] = useState('');
-    const path = useLocation().pathname;
+    // console.log(useLocation())
+    const location =useLocation();
+    const path = location.pathname;
     let navigate = useNavigate();
     let title ='';
     // 请求实时天气
@@ -82,7 +84,7 @@ export default function Header() {
           });
     }
     return (
-        <div className="header">
+        <header className="header">
             <div className="header-top">
                 <span>欢迎，{username}</span>
                 <LinkButton onClick={logout}>退出</LinkButton>
@@ -97,6 +99,6 @@ export default function Header() {
                     <span>{weather}</span>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }

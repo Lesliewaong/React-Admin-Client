@@ -56,7 +56,7 @@ export default function LeftNav() {
   // 判断当前登陆用户对item是否有权限
   const hasAuth = (item) => {
     const { key } = item
-    console.log(memoryUtils.user)
+    // console.log(memoryUtils.user)
     const menus = memoryUtils.user.role.menus
     const username = memoryUtils.user.username
     /*
