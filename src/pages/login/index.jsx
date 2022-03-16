@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { reqLogin } from '../../api'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './index.less'
-import logo from '../../assets/images/logo.jpg'
+import hat from '../../assets/images/hat.svg'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
 import LinkButton from '../../components/link-button'
@@ -70,8 +70,8 @@ export default function Login() {
     return (
         <div className="login">
             <header className="login-header">
-                <img src={logo} alt="logo" />
-                <h1>React项目：后台管理系统</h1>
+                <img src={hat} alt="logo" />               
+                <h1>One Piece 商城后台管理系统</h1>
             </header>
             <section className="login-content">
                 <h2>用户登录</h2>

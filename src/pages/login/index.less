@@ -15,20 +15,19 @@
     background-color: #3657ac;
     .login-header{
         display: flex;
-        align-items: center;
         height: 80px;
         background: rgba(1, 7, 56, 0.5);
         img{
-            width: 60px;
-            height: 60px;
-            margin: 0 15px 0 50px;
-            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin: 0 15px 0 20px;
+            align-self: center;
+            // border-radius: 50%;
             animation: spin 0.5s linear 0s forwards;
             &:hover{
                 animation: spin 1s linear forwards infinite;
             }
         }
-       
         @keyframes spin {
             100% {
                 transform: rotate(360deg);
@@ -37,7 +36,7 @@
         h1{
             font-size: 30px;
             color: white;
-            margin-bottom:0;
+            line-height: 80px;
         }         
     }
     .login-content{

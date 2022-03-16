@@ -15,22 +15,22 @@ const theme = getTheme();
 
 export default function LineDemo() {
   const data = [
-    { name: 'London', month: 'Jan.', monthAverageRain: 18.9 },
-    { name: 'London', month: 'Feb.', monthAverageRain: 28.8 },
-    { name: 'London', month: 'Mar.', monthAverageRain: 39.3 },
-    { name: 'London', month: 'Apr.', monthAverageRain: 81.4 },
-    { name: 'London', month: 'May', monthAverageRain: 47 },
-    { name: 'London', month: 'Jun.', monthAverageRain: 20.3 },
-    { name: 'London', month: 'Jul.', monthAverageRain: 24 },
-    { name: 'London', month: 'Aug.', monthAverageRain: 35.6 },
-    { name: 'Berlin', month: 'Jan.', monthAverageRain: 12.4 },
-    { name: 'Berlin', month: 'Feb.', monthAverageRain: 23.2 },
-    { name: 'Berlin', month: 'Mar.', monthAverageRain: 34.5 },
-    { name: 'Berlin', month: 'Apr.', monthAverageRain: 99.7 },
-    { name: 'Berlin', month: 'May', monthAverageRain: 52.6 },
-    { name: 'Berlin', month: 'Jun.', monthAverageRain: 35.5 },
-    { name: 'Berlin', month: 'Jul.', monthAverageRain: 37.4 },
-    { name: 'Berlin', month: 'Aug.', monthAverageRain: 42.4 },
+    { name: '漫画', month: 'Jan.', monthAverageRain: 18.9 },
+    { name: '漫画', month: 'Feb.', monthAverageRain: 28.8 },
+    { name: '漫画', month: 'Mar.', monthAverageRain: 39.3 },
+    { name: '漫画', month: 'Apr.', monthAverageRain: 81.4 },
+    { name: '漫画', month: 'May', monthAverageRain: 47 },
+    { name: '漫画', month: 'Jun.', monthAverageRain: 20.3 },
+    { name: '漫画', month: 'Jul.', monthAverageRain: 24 },
+    { name: '漫画', month: 'Aug.', monthAverageRain: 35.6 },
+    { name: '手办', month: 'Jan.', monthAverageRain: 12.4 },
+    { name: '手办', month: 'Feb.', monthAverageRain: 23.2 },
+    { name: '手办', month: 'Mar.', monthAverageRain: 34.5 },
+    { name: '手办', month: 'Apr.', monthAverageRain: 99.7 },
+    { name: '手办', month: 'May', monthAverageRain: 52.6 },
+    { name: '手办', month: 'Jun.', monthAverageRain: 35.5 },
+    { name: '手办', month: 'Jul.', monthAverageRain: 37.4 },
+    { name: '手办', month: 'Aug.', monthAverageRain: 42.4 },
   ];
   const average = data.reduce((pre, item) => {
     const { month, monthAverageRain } = item;
@@ -95,13 +95,13 @@ export default function LineDemo() {
         </View>
         <Legend custom={true} items={[
           {
-            name: "London", value: 'London', marker: {
+            name: "漫画", value: '漫画', marker: {
               symbol: 'square',
               style: { fill: colors[0] }
             }
           },
           {
-            name: "Berlin", value: 'Berlin', marker: {
+            name: "手办", value: '手办', marker: {
               symbol: 'square',
               style: { fill: colors[1] }
             }

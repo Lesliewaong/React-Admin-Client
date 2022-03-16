@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Card,
     Statistic,
@@ -16,10 +16,6 @@ const dateFormat = 'YYYY/MM/DD'
 const { RangePicker } = DatePicker
 
 export default function Home() {
-    const [isVisited, setIsVisited] = useState(true)
-    const handleChange = (isVisited) => {
-        return () => setIsVisited(isVisited)
-    }
     return (
         <div className='home'>
             <Card
@@ -52,18 +48,15 @@ export default function Home() {
             <Card
                 className="home-content"
                 title={<div className="home-menu">
-                    <span className={isVisited ? "home-menu-active home-menu-visited" : 'home-menu-visited'}
-                        onClick={handleChange(true)}>股票</span>
-                    <span className={isVisited ? "" : 'home-menu-active'} onClick={handleChange(false)}>访客</span>
                 </div>}
                 extra={<RangePicker
-                    defaultValue={[moment('2019/01/01', dateFormat), moment('2019/06/01', dateFormat)]}
+                    defaultValue={[moment('2021/01/01', dateFormat), moment('2022/01/01', dateFormat)]}
                     format={dateFormat}
                 />}
             >
                 <Card
                     className="home-table-left"
-                    title={isVisited ? '今日股票' : '访客分布'}
+                    title= '股票走势'
                     bodyStyle={{ padding: 0, height: 350 }}
                     extra={<ReloadOutlined />}
                 >

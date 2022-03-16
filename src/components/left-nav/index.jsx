@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
-import logo from '../../assets/images/logo.jpg'
+import hat from '../../assets/images/hat.svg'
 import './index.less'
 import menuList from '../../config/menuConfig'
 import memoryUtils from '../../utils/memoryUtils'
@@ -83,8 +83,8 @@ export default function LeftNav() {
     <div className="left-nav">
 
       <Link to='/' className="left-nav-header">
-        <img src={logo} alt="logo" />
-        <h1>商城后台</h1>
+        <img src={hat} alt="logo" />
+        <h1>One Piece</h1>
       </Link>
       <Menu
         //初始选中的菜单项 key 数组
