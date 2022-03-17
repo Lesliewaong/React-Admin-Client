@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
-import hat from '../../assets/images/hat.svg'
+import hat from '../../assets/images/hat.png'
 import './index.less'
 import menuList from '../../config/menuConfig'
 import memoryUtils from '../../utils/memoryUtils'
