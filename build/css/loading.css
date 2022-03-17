@@ -1,13 +1,11 @@
 /*
  * Baseline styles
  */
-body {
-    background: rgb(1, 0, 5);
-}
 .loader{
     width: 100%;
     height: 100%;
     display: flex;
+    background: rgb(1, 0, 5);
     /*父元素开启flex，将loading容器垂直水平居中*/
     align-items:center;
     justify-content: center;
