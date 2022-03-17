@@ -1,6 +1,9 @@
 /*
  * Baseline styles
  */
+ body{
+     background-color: black;
+ }
 .loader{
     width: 100%;
     height: 100%;
